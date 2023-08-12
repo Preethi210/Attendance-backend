@@ -63,12 +63,14 @@ public class AttendanceController  implements AttendanceService{
         return attendanceService.updateAllAttendance(attendanceUpdateRequestList);
     }
 
-    @GetMapping("/students/by-id-DateRange")
+    @GetMapping("/students")
     public List<AttendanceResponse> getBystudentidindaterange(@RequestParam int studentId, @RequestParam LocalDate startdate, @RequestParam LocalDate enddate){
         return attendanceService.getBystudentidindaterange(studentId, startdate, enddate);
     }
 
-    @GetMapping("/class/by-id-DateRange")
+
+
+    @GetMapping("/class")
     public List<AttendanceResponse> getByclassIDindaterange(@RequestParam String classId, @RequestParam LocalDate startdate, @RequestParam LocalDate enddate) {
         return attendanceService.getByclassIDindaterange(classId, startdate, enddate);
     }
