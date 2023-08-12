@@ -62,6 +62,15 @@ public class StudentController {
         return studentsInSection;
     }
 
+    @GetMapping("/classId/{classId}/studentCount")
+    public int getStudentCountByClass(@PathVariable String classId) {
+        // Calculate the number of students in the specified class
+        long studentCount = students.stream()
+                .filter(student -> student.getClassId().equalsIgnoreCase(classId))
+                .count();
+        return (int) studentCount; // Return the count as an integer
+    }
+
     @GetMapping("/firstName/{firstName}")
     public List<StudentEntity> getStudentByFirstName(@PathVariable String firstName) {
         // Find the student with the specified email ID
